@@ -1,10 +1,11 @@
 var assert = require('chai').assert;
 var should = require('chai').should();
 var request = require('supertest');var mqtt    = require('mqtt');
-var client  = mqtt.connect('mqtt://test.mosquitto.org');
 var queue = 'simagix';
 	
 describe('Doodle MQTT Test', function() {
+    process.env.MQTT_QUEUE = 'mqtt://test.mosquitto.org';
+    var client  = mqtt.connect(process.env.MQTT_QUEUE);
     var datastr;
 	
 	before(function(done) {

@@ -1,5 +1,5 @@
 var mqtt    = require('mqtt');
-var client  = mqtt.connect('mqtt://test.mosquitto.org');
+var client  = mqtt.connect(process.env.MQTT_QUEUE);
 var queue = 'simagix';
 
 client.on('connect', function () {
