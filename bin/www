@@ -5,7 +5,7 @@
  */
 
 var app = require('../app');
-var debug = require('debug')('doodle:server');
+var debug = require('debug')('mobile-signature:server');
 var http = require('http');
 
 /**

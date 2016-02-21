@@ -7,7 +7,7 @@ router.post('/', function(req, res, next) {
     require('crypto').randomBytes(4, function(err, buf) {
         var filename = buf.toString('hex')  + '.' + tokens[1];
         var decodedImage = new Buffer(tokens[3], 'base64');
-        // require('fs').writeFileSync('doodles/' + filename, decodedImage);
+        // require('fs').writeFileSync('signatures/' + filename, decodedImage);
         res.setHeader('Content-Type', 'Application/json');
         res.statusCode = 201;
         res.json({'filename': filename});

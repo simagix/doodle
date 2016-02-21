@@ -1,6 +1,6 @@
-# Doodle
+# Mobile Signature
 
-Doodle is a mobile HTML5 web app to draw on canvas and upload the image to the server.
+Mobile Signature is a mobile HTML5 web app to draw on canvas and upload the image to the server.
 
 ### Keywords
     - HTML 5
@@ -25,11 +25,11 @@ npm test
 
 ### Docker Build
 ```
-docker build -t doodle .
+docker build -t mobile-signature .
 ```
 
 ### Docker Run
 ```
-docker run -p 3000:3000 -d doodle
+docker run -p 3000:3000 -d mobile-signature
 
 ```

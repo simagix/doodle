@@ -3,7 +3,7 @@ var should = require('chai').should();
 var request = require('supertest');var mqtt    = require('mqtt');
 var queue = 'simagix';
 	
-describe('Doodle MQTT Test', function() {
+describe('Mobile Signature MQTT Test', function() {
     process.env.MQTT_QUEUE = 'mqtt://test.mosquitto.org';
     var client  = mqtt.connect(process.env.MQTT_QUEUE);
     var datastr;

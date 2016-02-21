@@ -1,7 +1,7 @@
 var should = require('chai').should();
 var request = require('supertest');
 	
-describe('Doodle Image API Test', function() {
+describe('Mobile Signature Image API Test', function() {
 	var url = 'http://localhost:3000';
     var doc = {};
 	

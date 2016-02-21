@@ -13,7 +13,7 @@
             var colors = ['red', 'orange', 'blue', 'green', 'purple', 'brown', 'black', 'grey'];
             
             function init() {
-                canvas = document.getElementById("doodle");
+                canvas = document.getElementById("signature");
                 canvas.addEventListener("touchmove", draw, false);
                 canvas.addEventListener("touchend", end, false);
                 ctx = canvas.getContext("2d");
@@ -40,7 +40,7 @@
             }
             
             function saveImage() {
-                var data = document.getElementById("doodle").toDataURL("image/png");
+                var data = document.getElementById("signature").toDataURL("image/png");
                 
                 $.ajax({
                     type: 'POST',
@@ -66,7 +66,7 @@
         </script>
     </head>
     <body onload="init()">
-        <canvas id="doodle" width="400" height="400" style='border: 10px solid'>
+        <canvas id="signature" width="400" height="400" style='border: 10px solid'>
             Canvas element not supported.
         </canvas>
         <br/><br/>
