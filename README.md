@@ -17,3 +17,8 @@ npm install
 npm start
 ```
 The default port is 3000, http://localhost:3030.
+
+### Unit Test
+```
+npm test
+```
