@@ -22,3 +22,14 @@ The default port is 3000, http://localhost:3030.
 ```
 npm test
 ```
+
+### Docker Build
+```
+docker build -t doodle .
+```
+
+### Docker Run
+```
+docker run -p 3000:3000 -d doodle
+
+```
