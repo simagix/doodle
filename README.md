@@ -6,7 +6,8 @@ Mobile Signature is a mobile HTML5 web app to draw on canvas and upload the imag
     - HTML 5
     - Node.js
     - Express.js
-    
+    - MQTT
+
 ### Installation
 ```
 npm install
