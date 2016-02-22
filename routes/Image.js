@@ -12,7 +12,7 @@ router.post('/', function(req, res, next) {
         res.statusCode = 201;
         res.json({'filename': filename});
         // async send data to mqtt
-        if(process.env.MQTT_QUEUE) {
+        if(process.env.MQTT_BROKER) {
             var mqtt = require('../mqtt/MessageService');
             mqtt.sendMessage(req.body.data, function(err, doc) {
             });

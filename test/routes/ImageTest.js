@@ -9,7 +9,7 @@ describe('Mobile Signature Image API Test', function() {
 		var app = require('../../app');
         require('http').createServer(app).listen(3000);
 	    require('fs').readFile('test/routes/image.base64', 'utf8', function(err, data) {
-            doc = JSON.parse(data);
+            doc = {'data': data};
 		    done();
         });
 	});
