@@ -1,8 +1,8 @@
 var request = require('supertest');
-var url = 'http://localhost:3000';
 var args = process.argv.splice(2);
 var lwip = require('lwip')
 var total = args[0] || 30;
+var url = args[1] || 'http://localhost:3000';
 var Buffer = require('buffer').Buffer;
 var WIDTH = 60;
 var HEIGHT = 60;

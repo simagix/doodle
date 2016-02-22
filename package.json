@@ -3,7 +3,6 @@
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
-		"demo": "node ./demo/images",
 		"start": "node ./bin/www",
 		"test": "node_modules/.bin/mocha"
 	},
