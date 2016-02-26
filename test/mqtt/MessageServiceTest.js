@@ -24,9 +24,9 @@ describe('Mobile Signature MQTT Test', function() {
             client.publish(queue, datastr);
  
             client.on('message', function (topic, message) {
-                console.log(datastr.substring(0, 60));
-                console.log(message.toString().substring(0, 60));
-                // assert.equal(datastr, message.toString());
+                // console.log(datastr.substring(0, 60));
+                // console.log(message.toString().substring(0, 60));
+                assert.equal(datastr, message.toString());
                 done();
             });
 		});

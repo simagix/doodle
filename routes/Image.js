@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var lwip = require('lwip')
 
 /* GET users listing. */
 router.post('/', function(req, res, next) {
@@ -14,8 +15,19 @@ router.post('/', function(req, res, next) {
         // async send data to mqtt
         if(process.env.MQTT_BROKER) {
             var mqtt = require('../mqtt/MessageService');
-            mqtt.sendMessage(req.body.data, function(err, doc) {
-            });
+            if(decodedImage) {
+                lwip.open(decodedImage, 'png', function(err, image){
+                    image.resize(60, function(err, image) {
+                        image.toBuffer('png', function(err, buf) {
+                        if(! err) {
+                            var buf = 'data:image/png;base64,' + buf.toString('base64');
+                            mqtt.sendMessage(buf, function(err, doc) {
+                            });
+                        }
+                        })
+                    })
+                });
+            }
         }
     });
 });
