@@ -2,12 +2,12 @@ var should = require('chai').should();
 var request = require('supertest');
 	
 describe('Mobile Signature Image API Test', function() {
-	var url = 'http://localhost:3000';
+	var url = 'http://localhost:3300';
     var doc = {};
 	
 	before(function(done) {
 		var app = require('../../app');
-        require('http').createServer(app).listen(3000);
+        require('http').createServer(app).listen(3300);
 	    require('fs').readFile('test/routes/image.base64', 'utf8', function(err, data) {
             doc = {'data': data};
 		    done();

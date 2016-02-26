@@ -2,12 +2,13 @@ var request = require('supertest');
 var args = process.argv.splice(2);
 var lwip = require('lwip')
 var total = args[0] || 30;
-var url = args[1] || 'http://localhost:3000';
+var url = args[1] || 'http://localhost:3300';
 var Buffer = require('buffer').Buffer;
 var WIDTH = 60;
 var HEIGHT = 60;
 var colors = ['black', 'white', 'red', 'green', 'blue', 'yellow', 'cyan', 'magenta'];
 var maps = {};
+console.log('post to ' + url);
 sendImage(total);
 
 function sendImage(num) {
@@ -21,8 +22,7 @@ function sendImage(num) {
                 maps[color] = doc;
                 postImage(doc);
             });
-        // });
-    });
+    	});
     }
 
     if(--num > 0) {

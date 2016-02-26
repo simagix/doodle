@@ -17,7 +17,7 @@ npm install
 ```
 npm start
 ```
-The default port is 3000, http://localhost:3030.
+The default port is 3300, http://localhost:3300.
 
 ### Unit Test
 ```
@@ -31,6 +31,6 @@ docker build -t mobile-signature .
 
 ### Docker Run
 ```
-docker run -p 3000:3000 -d mobile-signature
+docker run -p 3300:3300 -d mobile-signature
 
 ```
