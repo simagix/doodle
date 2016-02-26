@@ -34,3 +34,8 @@ docker build -t mobile-signature .
 docker run -p 3300:3300 -d mobile-signature
 
 ```
+
+### Build for Raspberry PI
+```
+docker build -t simagix/mobile-signature-rpi -f Dockerfile.rpi .
+```
