@@ -18,14 +18,18 @@ router.post('/', function(req, res, next) {
             if(decodedImage) {
                 lwip.open(decodedImage, 'png', function(err, image){
                     image.resize(60, function(err, image) {
-                        image.toBuffer('png', function(err, buf) {
-                        if(! err) {
-                            var buf = 'data:image/png;base64,' + buf.toString('base64');
-                            mqtt.sendMessage(buf, function(err, doc) {
+                        image.border(2, 'white', function(err, image) {
+                            image.border(1, 'black', function(err, image) {
+                                image.toBuffer('png', function(err, buf) {
+                                    if(! err) {
+                                        var buf = 'data:image/png;base64,' + buf.toString('base64');
+                                        mqtt.sendMessage(buf, function(err, doc) {
+                                        });
+                                    }
+                                });
                             });
-                        }
-                        })
-                    })
+                        });
+                    });
                 });
             }
         }

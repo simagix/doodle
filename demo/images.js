@@ -3,12 +3,14 @@ var args = process.argv.splice(2);
 var lwip = require('lwip')
 var total = args[0] || 30;
 var url = args[1] || 'http://localhost:3300';
+if(url.indexOf('http://') != 0) {
+    url = 'http://' + url;
+}
 var Buffer = require('buffer').Buffer;
 var WIDTH = 60;
 var HEIGHT = 60;
 var colors = ['black', 'white', 'red', 'green', 'blue', 'yellow', 'cyan', 'magenta'];
 var maps = {};
-console.log('post to ' + url);
 sendImage(total);
 
 function sendImage(num) {
@@ -33,6 +35,7 @@ function sendImage(num) {
 }
 
 function postImage(doc) {
+    console.log('post to ' + url);
     request(url)
         .post('/image')
         .send(doc)
