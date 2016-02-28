@@ -22,10 +22,14 @@ function sendImage(num) {
         postImage(maps[color]);
     } else {
         lwip.create(WIDTH, 60, color, function(err, image) {
-            image.toBuffer('png', {}, function(err, buffer) {
-                var doc = {'data': 'data:image/png;base64,' + buffer.toString('base64')};
-                maps[color] = doc;
-                postImage(doc);
+            image.border(6, getColor(), function (err, image) {
+                image.border(3, getColor(), function (err, image) {
+                    image.toBuffer('png', {}, function (err, buffer) {
+                        var doc = { 'data': 'data:image/png;base64,' + buffer.toString('base64') };
+                        maps[color] = doc;
+                        postImage(doc);
+                    });
+                });
             });
     	});
     }
