@@ -37,7 +37,8 @@ function calculateColorValues(image, cb) {
     for(var row = 0; row < width; row++) {
         for(var col = 0; col < height; col++) {
             var doc = image.getPixel(row, col);
-            if(doc.r == 255 && doc.g == 255 && doc.b == 255) {
+            if((doc.r == 255 && doc.g == 255 && doc.b == 255) ||
+                (doc.r == 0 && doc.g == 0 && doc.b == 0)) {
                 continue;
             }
             
