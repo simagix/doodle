@@ -1,3 +1,5 @@
+'use strict'
+
 var request = require('supertest');
 var args = process.argv.splice(2);
 var lwip = require('lwip')
@@ -9,7 +11,8 @@ if(url.indexOf('http://') != 0) {
 var Buffer = require('buffer').Buffer;
 var WIDTH = 60;
 var HEIGHT = 60;
-var colors = ['black', 'white', 'red', 'green', 'blue', 'yellow', 'cyan', 'magenta'];
+// var colors = ['black', 'white', 'red', 'green', 'blue', 'yellow', 'cyan', 'magenta'];
+let colors = ['red', 'blue', 'green', 'yellow', 'cyan', 'magenta'];
 var maps = {};
 sendImage(total);
 
