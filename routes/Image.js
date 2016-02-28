@@ -68,16 +68,17 @@ function getHex(value) {
 }
 
 function sendOffImage(image, cb) {
-    image.border(2, 'white', function (err, image) {
-        image.border(1, 'black', function (err, image) {
-            image.toBuffer('png', function (err, buf) {
-                if (!err) {
-                    var buf = 'data:image/png;base64,' + buf.toString('base64');
-                    mqtt.sendMessage(buf, function (err, doc) {
-                        cb();
-                    });
-                }
-            });
+    image.border(1, 'gray', function (err, image) {
+        image.toBuffer('png', function (err, buf) {
+            if (!err) {
+                var buf = 'data:image/png;base64,' + buf.toString('base64');
+                mqtt.sendMessage(buf, function (err, doc) {
+                    if(err) {
+                        console.log(err);
+                    }
+                    cb();
+                });
+            }
         });
     });
 }

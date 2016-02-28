@@ -11,7 +11,11 @@ if(url.indexOf('http://') != 0) {
 var Buffer = require('buffer').Buffer;
 var WIDTH = 60;
 var HEIGHT = 60;
-let palette = ['red', 'blue', 'green', '#800080', '#FF8C00', 'gray'];
+// let palette = ['red', 'blue', 'green', '#800080', '#FF8C00', 'gray'];
+let palette = ['red', 'blue', 'green', 
+    {'r': 128, 'g': 0, 'b': 128, 'a': 100},
+    {'r': 255, 'g': 76, 'b': 0, 'a': 100},
+     'gray'];
 var maps = {};
 sendImage(total);
 
@@ -21,14 +25,10 @@ function sendImage(num) {
         postImage(maps[color]);
     } else {
         lwip.create(WIDTH, 60, color, function(err, image) {
-            image.border(6, getColor(), function (err, image) {
-                image.border(3, getColor(), function (err, image) {
-                    image.toBuffer('png', {}, function (err, buffer) {
-                        var doc = { 'data': 'data:image/png;base64,' + buffer.toString('base64') };
-                        maps[color] = doc;
-                        postImage(doc);
-                    });
-                });
+            image.toBuffer('png', {}, function (err, buffer) {
+                var doc = { 'data': 'data:image/png;base64,' + buffer.toString('base64') };
+                maps[color] = doc;
+                postImage(doc);
             });
     	});
     }
@@ -36,7 +36,7 @@ function sendImage(num) {
     if(--num > 0) {
         setTimeout(function() {
             sendImage(num)
-        }, 20);
+        }, 50);
     }
 }
 
