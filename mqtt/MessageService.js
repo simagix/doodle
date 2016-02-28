@@ -9,6 +9,5 @@ exports.sendMessage = function(data, cb) {
 }
 
 exports.sendColorValuesMessage = function(data, cb) {
-    console.log(data);
     client.publish(queue_simagix_color, data);
 }

@@ -10,16 +10,17 @@
             var ctx;
             var lastPt = null;
             var count = 0;
-            var colors = ['red', 'blue', 'green', 'yellow', 'cyan', 'magenta'];
+            var palette = ['red', 'blue', 'green', '#800080', '#FF8C00', 'gray'];
+            // red blue green purple darkorange gray
             
             function init() {
                 canvas = document.getElementById("signature");
                 canvas.addEventListener("touchmove", draw, false);
                 canvas.addEventListener("touchend", end, false);
                 ctx = canvas.getContext("2d");
-                var index = Math.floor((Math.random() * 10)) % colors.length;
-                ctx.strokeStyle = colors[index];
-                document.getElementById("change_button").style.background=colors[index];
+                var index = Math.floor((Math.random() * 10)) % palette.length;
+                ctx.strokeStyle = palette[index];
+                document.getElementById("change_button").style.background=palette[index];
             }
             
             function draw(e) {
@@ -58,10 +59,11 @@
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
             }
             
+            var colorIndex = Math.floor((Math.random() * 10)) % palette.length;
             function changeColor() {
-                var index = Math.floor((Math.random() * 10)) % colors.length;
-                ctx.strokeStyle = colors[index];
-                document.getElementById("change_button").style.background=colors[index];
+                ctx.strokeStyle = palette[colorIndex % palette.length];
+                document.getElementById("change_button").style.background=palette[colorIndex % palette.length];
+                colorIndex++;
             }
         </script>
     </head>

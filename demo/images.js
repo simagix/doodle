@@ -11,8 +11,7 @@ if(url.indexOf('http://') != 0) {
 var Buffer = require('buffer').Buffer;
 var WIDTH = 60;
 var HEIGHT = 60;
-// var colors = ['black', 'white', 'red', 'green', 'blue', 'yellow', 'cyan', 'magenta'];
-let colors = ['red', 'blue', 'green', 'yellow', 'cyan', 'magenta'];
+let palette = ['red', 'blue', 'green', '#800080', '#FF8C00', 'gray'];
 var maps = {};
 sendImage(total);
 
@@ -59,6 +58,6 @@ function randomInt (low, high) {
 
 
 function getColor() {
-    var i = randomInt(0, colors.length-1);
-    return colors[i];
+    var i = randomInt(0, palette.length-1);
+    return palette[i];
 }
