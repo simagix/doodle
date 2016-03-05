@@ -36,7 +36,7 @@ function sendImage(num) {
     if(--num > 0) {
         setTimeout(function() {
             sendImage(num)
-        }, 50);
+        }, 100);
     }
 }
 
