@@ -8,6 +8,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var image = require('./routes/Image');
+var hostname = require('./routes/Hostname');
 var app = express();
 
 app.use(logger('dev'));
@@ -17,5 +18,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/image', image);
+app.use('/hostname', hostname);
 
 module.exports = app;
