@@ -17,7 +17,9 @@ let palette = ['red', 'blue', 'green',
     {'r': 255, 'g': 76, 'b': 0, 'a': 100},
      'gray'];
 var maps = {};
-sendImage(total);
+let imgfiles = ['demo/tai.png', 'demo/wan.png', 'demo/chen.png', 'demo/kuei.png', 'demo/chun.png'];
+// sendImage(total);
+sendNameImages(total);
 
 function sendImage(num) {
     var color = getColor();
@@ -36,6 +38,29 @@ function sendImage(num) {
     if(--num > 0) {
         setTimeout(function() {
             sendImage(num)
+        }, 100);
+    }
+}
+
+function sendNameImages(num) {
+    var idx = num % imgfiles.length;
+    var sidx = '' + idx;
+   
+    if(maps[sidx]) {
+        postImage(maps[sidx]);
+    } else {
+        lwip.open(imgfiles[idx], function(err, image) {
+            image.toBuffer('png', {}, function (err, buffer) {
+                var doc = { 'data': 'data:image/png;base64,' + buffer.toString('base64') };
+                maps[sidx] = doc;
+                postImage(doc);
+            });
+        });
+    }
+
+    if(--num > 0) {
+        setTimeout(function() {
+            sendNameImages(num)
         }, 100);
     }
 }
